@@ -35,9 +35,11 @@ After logging in, you will be able to test the Broken Access Control vulnerabili
 
 ## 🛠️ Project Structure
 broken_access_control.py: Main file containing the Flask server and access control logic.
-login.html: Login page for the system.
-dashboard.html: Main page after user login.
-resource.html: Displays data for a specific resource.
+templates/: Directory containing all the HTML templates used in the app.
+    login.html: Login page for the system.
+    dashboard.html: Main page after user login.
+    resource.html: Displays data for a specific resource.
+venv/: Virtual environment (ignored by Git).
 
 ## 📚 About the Vulnerability
 Broken Access Control occurs when an access control system fails to ensure that users can only access the resources they are authorized to. In this project, any user can access other users' resources without restrictions, simulating this security flaw.
@@ -48,5 +50,5 @@ After logging in, an unauthorized user can directly access resources from anothe
 ## 🔒 How to Fix It
 A simple solution to fix the vulnerability would be to ensure that the server checks if the user is authorized to access the requested resource. For example:
 
-if resource["owner"] != username:
-    return "Access denied", 403
+    if resource["owner"] != username:
+        return "Access denied", 403
